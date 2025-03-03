@@ -4,6 +4,7 @@ const PORT = process.env.PORT || 5000;
 const mongoose= require('mongoose')
 dotenv.config();
 
+const userRoutes=require('../backend/routes/userRoutes')
 
 const app = express();
 app.use(express.json());
@@ -17,8 +18,8 @@ mongoose.connect('mongodb+srv://jandev:TdX9o54kCK0obdWj@cluster0.8ibp6.mongodb.n
   
 
   const User = require('./models/userModel');
+  app.use('/users',userRoutes)
   
-  app.post('/users',);
 
 
 

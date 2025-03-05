@@ -21,7 +21,7 @@ const orderSchema = new mongoose.Schema({
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, // Reference to the User model
   products: [orderProductSchema], // Array of products in the order
   totalAmount: { type: Number, required: true, min: 0 },
-  status: { type: String, required: true, enum: ['pending', 'shipped', 'delivered'], default: 'pending' },
+  status: { type: String, required: true, enum: ['pending', 'shipped', 'delivered','cancelled'], default: 'pending' },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
   shippingAddress: { type: shippingAddressSchema, required: true },

@@ -1,0 +1,10 @@
+* update seller status --> put 
+* update order status -> put
+* update product > put
+* get all the recent transaction history -> get
+
+
+---------------------
+* crud for review
+    get product review -> find({productId: productId})
+

@@ -6,6 +6,7 @@ dotenv.config();
 
 const userRoutes=require('../backend/routes/userRoutes')
 const productRoutes=require('../backend/routes/productRoutes')
+const orderRoutes=require('../backend/routes/orderRoutes')
 
 const app = express();
 app.use(express.json());
@@ -23,6 +24,7 @@ mongoose.connect('mongodb+srv://jandev:TdX9o54kCK0obdWj@cluster0.8ibp6.mongodb.n
 
   app.use('/users',userRoutes)
   app.use('/product',productRoutes)
+  app.use('/order',orderRoutes)
   
 
 

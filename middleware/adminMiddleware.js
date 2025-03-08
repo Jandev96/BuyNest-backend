@@ -1,9 +1,7 @@
-require('dotenv').config();
-const jwt = require('jsonwebtoken');
-const { verifyToken } = require('../utils/jwtUtils');
+const Admin=rqquire('../models/adminModel.js')
 
-const authenticateUserMiddleware = () => {
-    return (req, res, next) => {
+const adminMiddleware = () => {
+    return async(req, res, next) => {
         try {
             const token = req.headers.authorization?.split(' ')[1];
             if (!token) {
@@ -16,7 +14,16 @@ const authenticateUserMiddleware = () => {
 
             // Check if the user's role is in the allowedRoles array
             const user = decoded;
+            const admin=await Admin.findById(user.id)
+            if(!admin){
+                return res.status(401).json({
+                    message:'Not an Admin'
+                })
+        }
         
+            // get the id
+            // check if its present in the admin collection
+            // if not return error
 
             req.user = decoded;
             next();
@@ -28,6 +35,3 @@ const authenticateUserMiddleware = () => {
         }
     };
 };
-
-
-module.exports = authenticateUserMiddleware

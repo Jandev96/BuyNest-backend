@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const {createProduct,getProduct,displayAllProducts,deleteProduct,updateProduct} = require('../controller/productController')
-const roleCheckMiddleware = require('../middleware/authMiddleware')
+const authenticateUserMiddleware = require('../middleware/authMiddleware')
 
 
-router.post('/',roleCheckMiddleware(), createProduct);
+router.post('/',authenticateUserMiddleware(), createProduct);
 router.get('/',displayAllProducts)
 router.get('/:productId',getProduct)
 router.delete('/:productId',deleteProduct)
@@ -13,4 +13,4 @@ router.put('/:productId',updateProduct)
 
 module.exports=router
 
-// ente voice kekkaavo
+

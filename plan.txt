@@ -1,10 +1,10 @@
 * update seller status --> put 
 * update order status -> put
-* update product > put
+
 * get all the recent transaction history -> get
 
+* implement payment gateway
 
----------------------
-* crud for review
-    get product review -> find({productId: productId})
 
+error
+//issue in transaction put request
